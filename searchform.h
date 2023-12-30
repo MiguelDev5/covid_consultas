@@ -6,6 +6,7 @@
 
 #include "ui_searchform.h"
 #include "msearchcontroller.h"
+#include "extractdata.h"
 
 using namespace std;
 

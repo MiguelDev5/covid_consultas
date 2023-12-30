@@ -10,6 +10,8 @@ public:
     MaintenanceTable();
 
     static void setTable(QTableWidget *newTable);
+    static QTableWidget& getTable();
+    static void borrar();
 };
 
 #endif // MAINTENANCETABLE_H

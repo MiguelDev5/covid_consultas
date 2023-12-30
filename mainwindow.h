@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "secondwindow.h"
+#include "listaenlazada.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

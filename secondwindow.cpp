@@ -37,16 +37,24 @@ SecondWindow::SecondWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::Sec
 
     // (INICIO) TABLA DE EJEMPLO
     QTableWidget *tableWidget;
-    tableWidget = new QTableWidget(2, 6);
+    tableWidget = new QTableWidget(20, 15);
 
-    tableWidget->setHorizontalHeaderLabels(QStringList() << "FECHA_CORTE" << "UUID" << "FECHA_MUESTRA" << "Edad" << "Sexo" << "Institucion");
-
-    tableWidget->setItem(0, 0, new QTableWidgetItem("Dato 00"));
-    tableWidget->setItem(0, 1, new QTableWidgetItem("Dato 01"));
-    tableWidget->setItem(0, 2, new QTableWidgetItem("Dato 02"));
-    tableWidget->setItem(0, 3, new QTableWidgetItem("Dato 03"));
-    tableWidget->setItem(0, 4, new QTableWidgetItem("Dato 04"));
-    tableWidget->setItem(0, 5, new QTableWidgetItem("Dato 06"));
+    tableWidget->setHorizontalHeaderLabels(QStringList()
+                                           << "FECHA_CORTE"
+                                           << "UUID"
+                                           << "FECHA_MUESTRA"
+                                           << "Edad"
+                                           << "Sexo"
+                                           << "Institucion"
+                                           << "Ubigeo P."
+                                           << "Departamento P"
+                                           << "Provincia P"
+                                           << "Distrito P"
+                                           << "Departamento M."
+                                           << "Provincia M."
+                                           << "Distrito M."
+                                           << "Tipo M."
+                                           << "Resultado");
 
     MaintenanceTable::setTable(tableWidget);
     // (FIN) TABLA DE EJEMPLO
@@ -59,7 +67,7 @@ SecondWindow::SecondWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::Sec
     QVBoxLayout *containerLayout1 = new QVBoxLayout(containerWidget1);
     containerLayout1->addWidget(formularioBusqueda);
     containerLayout1->addWidget(content1);
-    containerLayout1->addWidget(tableWidget);
+    containerLayout1->addWidget(MaintenanceTable::tableWidget);
     containerWidget1->setLayout(containerLayout1);
     formularioBusqueda->show();
 
@@ -71,6 +79,8 @@ SecondWindow::SecondWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::Sec
     containerLayout2->addWidget(content2);
     containerLayout2->addWidget(searchButton);
     containerWidget2->setLayout(containerLayout2);
+
+
 
     // CONTENEDOR 03
     QWidget *containerWidget3 = new QWidget();
@@ -101,3 +111,23 @@ void SecondWindow::on_actionSalir_triggered(){
     MainWindow *first = new MainWindow();
     first->show();
 }
+
+void SecondWindow::on_actionAcerca_de_triggered(){
+    QTableWidget *tableWidget;
+//    tableWidget = new QTableWidget(2, 6);
+
+//    tableWidget->setHorizontaleaderLabels(QStringList() << "FECHA_CORTE" << "UUID" << "FECHA_MUESTRA" << "Edad" << "Sexo" << "Institucion");
+    tableWidget = &MaintenanceTable::getTable();
+
+
+    tableWidget->setItem(0, 0, new QTableWidgetItem("Dato 1234"));
+    tableWidget->setItem(0, 1, new QTableWidgetItem("Dato 012341"));
+    tableWidget->setItem(0, 2, new QTableWidgetItem("Dato 01234"));
+    tableWidget->setItem(0, 3, new QTableWidgetItem("Dato 012343"));
+    tableWidget->setItem(0, 4, new QTableWidgetItem("Dato 012344"));
+    tableWidget->setItem(0, 5, new QTableWidgetItem("Dato 0123416"));
+
+//    tableWidget->setTable(tableWidget);
+
+}
+

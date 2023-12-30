@@ -3,6 +3,7 @@
 #include <QMessageBox>
 
 #include "./ui_mainwindow.h"
+#include "extractdata.h"
 
 using namespace std;
 
@@ -32,10 +33,26 @@ void MainWindow::on_pushButton_clicked()
     QString username = ui->username->text();
     QString password = ui->password->text();
 
-    if (username.toStdString() == "admin" && password.toStdString() == "admin"){
-        this->hide();
-        SecondWindow *second = new SecondWindow();
-        second->show();
+    if (username == "admin" && password == "admin") {
+        string rutaArchivo = "C:/MIGUEL/UNSA/TO/pruebas/pruebas.csv";
+        char delimitador = ';';
+
+        try {
+            ListaEnlazada* lista = new ListaEnlazada();
+            ExtractData::extraerRegistros(rutaArchivo, delimitador, lista);
+
+            // Realizar operaciones con 'lista' si es necesario
+
+            this->hide();
+            SecondWindow *second = new SecondWindow();
+            second->show();
+
+            // Liberar memoria
+            delete lista;
+        } catch (const std::exception& e) {
+            // Manejar excepciones al leer el archivo
+            QMessageBox::critical(this, "Error de lectura", QString("Error al leer el archivo: ") + e.what());
+        }
     } else {
         QMessageBox::information(this, "Información de inicio de sesión", "Usuario y/o contraseña incorrecto(s).");
     }

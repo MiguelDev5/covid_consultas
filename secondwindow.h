@@ -23,6 +23,8 @@ public:
 private slots:
     void on_actionSalir_triggered();
 
+    void on_actionAcerca_de_triggered();
+
 private:
     Ui::SecondWindow *ui;
 
