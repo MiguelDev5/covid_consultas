@@ -1,5 +1,6 @@
 #include "maintenancetable.h"
 
+
 QTableWidget* MaintenanceTable::tableWidget = nullptr;
 
 void MaintenanceTable::setTable(QTableWidget *newTable) {
@@ -33,6 +34,40 @@ void MaintenanceTable::borrar() {
         }
     }
 }
+void MaintenanceTable::guardarCSV(){
+    int numRows = MaintenanceTable::tableWidget->rowCount();
+    int numCols = MaintenanceTable::tableWidget->columnCount();
+
+    // Nombre del archivo CSV
+    std::string nombreArchivo = "resultadosDeTablaInterfaz.csv";
+
+    // Abrir el archivo CSV para escritura
+    std::ofstream archivoCSV(nombreArchivo);
+
+    // GUARDAR el contenido de cada celda
+    if (archivoCSV.is_open()){
+        archivoCSV << "Fecha Corte;UUID;Fecha Muestra;Edad;Sexo;Institucion;Ubigeo Paciente;Departamento_Paciente;Provincia_Paciente;Distrito_Paciente;Departamento_Muestra;Provincia_Muestra;Distrito_Muestra;Tipo_Muestra;Resultado\n";
+        for (int i = 0; i < numRows; ++i)
+        {
+            for (int j = 0; j < numCols; ++j)
+            {
+                QTableWidgetItem *item = tableWidget->item(i, j);
+                if (item)
+                {
+                    archivoCSV << item->text().toStdString() << ";";
+                }
+            }
+            archivoCSV << "\n";
+        }
+        // Cerrar el archivo
+        archivoCSV.close();
+        std::cout << "Datos exportados exitosamente a " << nombreArchivo << std::endl;
+    }else{
+        std::cerr << "Error al abrir el archivo CSV." << std::endl;
+    }
+
+}
+
 
 
 

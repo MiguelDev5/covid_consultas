@@ -48,6 +48,7 @@ void SearchForm::on_pushButton_clicked(){
     ui->distrito->setText("");
     ui->tipo_muestra->setText("");
     ui->resultado->setText("");
+
 }
 
 
@@ -93,5 +94,6 @@ void SearchForm::on_pushButton_2_clicked()
     }
 
     copyList->getData();
+
 }
 

@@ -134,7 +134,8 @@ void SecondWindow::on_actionAcerca_de_triggered(){
 
 void SecondWindow::on_export_2_triggered()
 {
-    ListaEnlazada *temList = ExtractData::getListaTotal();
-    temList->mostrarTabla();
+    MaintenanceTable::guardarCSV();
+    //ListaEnlazada *temList = ExtractData::getListaTotal();
+    //temList->mostrarTabla();
 }
 

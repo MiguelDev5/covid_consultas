@@ -72,7 +72,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="label_4">
       <property name="text">
-       <string>Ubigeo</string>
+       <string>Ubigeo Paciente</string>
       </property>
      </widget>
     </item>
@@ -135,7 +135,7 @@
     <rect>
      <x>750</x>
      <y>40</y>
-     <width>193</width>
+     <width>194</width>
      <height>81</height>
     </rect>
    </property>
@@ -143,7 +143,7 @@
     <item row="0" column="0">
      <widget class="QLabel" name="label_7">
       <property name="text">
-       <string>Departamento</string>
+       <string>Departamento Paciente</string>
       </property>
      </widget>
     </item>
@@ -157,7 +157,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="label_8">
       <property name="text">
-       <string>Provincia</string>
+       <string>Provincia Paciente</string>
       </property>
      </widget>
     </item>
@@ -167,7 +167,7 @@
     <item row="2" column="0">
      <widget class="QLabel" name="label_9">
       <property name="text">
-       <string>Distrito</string>
+       <string>Distrito Paciente</string>
       </property>
      </widget>
     </item>
@@ -189,7 +189,7 @@
     <item row="0" column="0">
      <widget class="QLabel" name="label_10">
       <property name="text">
-       <string>Tipo de Muetsra</string>
+       <string>Tipo de Muestra</string>
       </property>
      </widget>
     </item>

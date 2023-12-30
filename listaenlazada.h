@@ -5,7 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <array>
+//#include <array>
 #include "Nodo.h"
 
 using namespace std;
