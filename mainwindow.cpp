@@ -34,7 +34,7 @@ void MainWindow::on_pushButton_clicked()
     QString password = ui->password->text();
 
     if (username == "admin" && password == "admin") {
-        string rutaArchivo = "C:/MIGUEL/UNSA/TO/pruebas/pruebas.csv";
+        string rutaArchivo = "C:/Users/Usuario/Documents/Trabajos/pruebas.csv";
         char delimitador = ';';
 
         try {
