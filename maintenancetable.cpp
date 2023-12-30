@@ -34,12 +34,12 @@ void MaintenanceTable::borrar() {
         }
     }
 }
-void MaintenanceTable::guardarCSV(){
+void MaintenanceTable::guardarCSV(string nombre){
     int numRows = MaintenanceTable::tableWidget->rowCount();
     int numCols = MaintenanceTable::tableWidget->columnCount();
 
     // Nombre del archivo CSV
-    std::string nombreArchivo = "resultadosDeTablaInterfaz.csv";
+    std::string nombreArchivo = nombre + ".csv";
 
     // Abrir el archivo CSV para escritura
     std::ofstream archivoCSV(nombreArchivo);

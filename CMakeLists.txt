@@ -31,6 +31,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         nodo.h nodo.cpp
         listaenlazada.h listaenlazada.cpp
         extractdata.h extractdata.cpp
+        ventanaexportar.h ventanaexportar.cpp ventanaexportar.ui
+
+
 
     )
 # Define target properties for Android with Qt 6 as:

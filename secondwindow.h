@@ -7,7 +7,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include "mainwindow.h"
-
+#include "ventanaExportar.h"
 namespace Ui {
 class SecondWindow;
 }

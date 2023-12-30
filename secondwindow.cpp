@@ -37,7 +37,7 @@ SecondWindow::SecondWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::Sec
 
     // (INICIO) TABLA DE EJEMPLO
     QTableWidget *tableWidget;
-    tableWidget = new QTableWidget(20, 15);
+    tableWidget = new QTableWidget(300, 15); //limitador de registros
 
     tableWidget->setHorizontalHeaderLabels(QStringList()
                                            << "FECHA_CORTE"
@@ -89,11 +89,21 @@ SecondWindow::SecondWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::Sec
     containerWidget3->setLayout(containerLayout3);
 
 
+    // CONTENEDOR 04
+    ventanaExportar *exportarVentana = new ventanaExportar();
+    exportarVentana->setMinimumSize(200, 200);
+    exportarVentana->setVisible(true);
+    QWidget *containerWidget4 = new QWidget();
+    QVBoxLayout *containerLayout4 = new QVBoxLayout(containerWidget4);
+    containerLayout4->addWidget(exportarVentana);
+    containerWidget4->setLayout(containerLayout4);
+
 
     // AGREGAR CONTENIDOS
     tabWidget->addTab(containerWidget1, "Búsqueda");
     tabWidget->addTab(containerWidget2, "Mantenimiento");
     tabWidget->addTab(containerWidget3, "Estadísticas");
+    tabWidget->addTab(containerWidget4, "Exportar");
 
     mainLayout->addWidget(tabWidget);
 
@@ -134,8 +144,13 @@ void SecondWindow::on_actionAcerca_de_triggered(){
 
 void SecondWindow::on_export_2_triggered()
 {
-    MaintenanceTable::guardarCSV();
+    //MaintenanceTable::guardarCSV();
     //ListaEnlazada *temList = ExtractData::getListaTotal();
     //temList->mostrarTabla();
+    /*
+    this->hide();
+    ventanaExportar *ventanaEx = new ventanaExportar();
+    ventanaEx->show();
+    */
 }
 
