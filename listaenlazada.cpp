@@ -217,7 +217,7 @@ void ListaEnlazada::eliminarfiltro()
 void ListaEnlazada::mostrarTabla()
 {
     // Nombre del archivo CSV
-    std::string nombreArchivo = "resultadosTablaFemenino.csv";
+    std::string nombreArchivo = "resuladosConFiltro.csv";
 
     // Abrir el archivo CSV para escritura
     std::ofstream archivoCSV(nombreArchivo);
@@ -297,4 +297,23 @@ int* ListaEnlazada::busquedaDepartamentos(string depa)
         actual = actual->siguiente;
     }
     return arr;
+}
+
+void ListaEnlazada::listaCopia(ListaEnlazada* listaCopia){
+    Nodo *actual = cabeza;
+
+    while (actual != nullptr)
+    {
+        if (actual->visible == true)
+        {
+            listaCopia->insertarAlInicio(actual->fecha_corte, actual->uuid, actual->fecha_muestra,
+                                         actual->edad, actual->sexo, actual->institucion,
+                                         actual->ubigeo_paciente, actual->departamento_paciente,
+                                         actual->provincia_paciente, actual->distrito_paciente,
+                                         actual->departamento_muestra, actual->provincia_muestra,
+                                         actual->distrito_muestra, actual->tipo_muestra,
+                                         actual->resultado);
+        }
+        actual = actual->siguiente;
+    }
 };

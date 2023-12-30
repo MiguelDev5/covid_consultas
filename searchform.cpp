@@ -17,7 +17,7 @@ SearchForm::~SearchForm()
 
 void SearchForm::on_pushButton_clicked(){
     MaintenanceTable::borrar();
-    QTableWidget *tableWidget;
+    //QTableWidget *tableWidget;
 
     ListaEnlazada *temList = ExtractData::getListaTotal();
     temList->eliminarfiltro();
@@ -41,5 +41,57 @@ void SearchForm::on_pushButton_clicked(){
     }
 
     temList->getData();
+    ui->edad->setText("");
+    ui->sexo->setText("");
+    ui->departamento->setText("");
+    ui->provincia->setText("");
+    ui->distrito->setText("");
+    ui->tipo_muestra->setText("");
+    ui->resultado->setText("");
+}
+
+
+void SearchForm::on_pushButton_2_clicked()
+{
+    MaintenanceTable::borrar();
+
+    ListaEnlazada *copyList = new ListaEnlazada();
+    ListaEnlazada *temList = ExtractData::getListaTotal();
+
+    temList->listaCopia(copyList);
+
+    //BORRAR LISTA COPIADA
+
+    QString edad = ui->edad->text();
+    QString sexo = ui->sexo->text();
+    QString departamento = ui->departamento->text();
+    QString provincia = ui->provincia->text();
+    QString distrito = ui->distrito->text();
+    QString tipo_muestra = ui->tipo_muestra->text();
+    QString resultado = ui->resultado->text();
+
+    if(edad.toStdString() != ""){
+        copyList->filtro(1, edad.toStdString());
+    }
+    if(sexo.toStdString() != ""){
+        copyList->filtro(2, sexo.toStdString());
+    }
+    if(departamento.toStdString() != ""){
+        copyList->filtro(3, departamento.toStdString());
+    }
+    if(provincia.toStdString() != ""){
+        copyList->filtro(4, provincia.toStdString());
+    }
+    if(distrito.toStdString() != ""){
+        copyList->filtro(5, distrito.toStdString());
+    }
+    if(tipo_muestra.toStdString() != ""){
+        copyList->filtro(6, tipo_muestra.toStdString());
+    }
+    if(resultado.toStdString() != ""){
+        copyList->filtro(7, resultado.toStdString());
+    }
+
+    copyList->getData();
 }
 

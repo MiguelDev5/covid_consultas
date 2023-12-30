@@ -33,6 +33,7 @@ public:
     void eliminarfiltro();
     void mostrarTabla();
     int* busquedaDepartamentos(string depa);
+    void listaCopia(ListaEnlazada* listaCopia);
 };
 
 #endif // LISTAENLAZADA_H
