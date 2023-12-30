@@ -31,7 +31,7 @@
      <string>Archivo</string>
     </property>
     <addaction name="error"/>
-    <addaction name="actionAcerca_de"/>
+    <addaction name="export_2"/>
     <addaction name="actionSalir_2"/>
    </widget>
    <widget class="QMenu" name="menuOpciones">
@@ -48,9 +48,9 @@
     <string>Reportar error</string>
    </property>
   </action>
-  <action name="actionAcerca_de">
+  <action name="export_2">
    <property name="text">
-    <string>Acerca de</string>
+    <string>Exportar</string>
    </property>
   </action>
   <action name="actionSalir_2">

@@ -25,6 +25,8 @@ private slots:
 
     void on_actionAcerca_de_triggered();
 
+    void on_export_2_triggered();
+
 private:
     Ui::SecondWindow *ui;
 

@@ -8,8 +8,6 @@
 #include <array>
 #include "Nodo.h"
 
-
-
 using namespace std;
 
 // Definición de la clase ListaEnlazada
@@ -33,6 +31,7 @@ public:
     void getData();
     void filtro(int n, string dato);
     void eliminarfiltro();
+    void mostrarTabla();
     int* busquedaDepartamentos(string depa);
 };
 

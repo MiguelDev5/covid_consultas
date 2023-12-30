@@ -213,6 +213,50 @@ void ListaEnlazada::eliminarfiltro()
         actual = actual->siguiente;
     }
 }
+
+void ListaEnlazada::mostrarTabla()
+{
+    // Nombre del archivo CSV
+    std::string nombreArchivo = "resultadosTablaFemenino.csv";
+
+    // Abrir el archivo CSV para escritura
+    std::ofstream archivoCSV(nombreArchivo);
+
+    Nodo *actual = cabeza;
+    if (archivoCSV.is_open()) {
+        // Escribir los encabezados de las columnas
+        archivoCSV << "Fecha Corte;UUID;Fecha Muestra;Edad;Sexo;Institucion;Ubigeo Paciente;Departamento_Paciente;Provincia_Paciente;Distrito_Paciente;Departamento_Muestra;Provincia_Muestra;Distrito_Muestra;Tipo_Muestra;Resultado\n";
+        while (actual != nullptr)
+        {
+            if (actual->visible == true)
+            {
+                archivoCSV << actual->fecha_corte << ";"<<
+                    actual->uuid << ";"<<
+                    actual->fecha_muestra << ";"<<
+                    actual->edad << ";"<<
+                    actual->sexo << ";"<<
+                    actual->institucion << ";"<<
+                    actual->ubigeo_paciente << ";"<<
+                    actual->departamento_paciente<< ";" <<
+                    actual->provincia_paciente <<";"<<
+                    actual->distrito_paciente << ";" <<
+                    actual->departamento_muestra<< ";" <<
+                    actual->provincia_muestra<<";"<<
+                    actual->distrito_muestra<<";"<<
+                    actual->tipo_muestra << ";"<<
+                    actual->resultado << "\n";
+            }
+            actual = actual->siguiente;
+        }
+        // Cerrar el archivo
+        archivoCSV.close();
+        std::cout << "Datos exportados exitosamente a " << nombreArchivo << std::endl;
+    }else {
+        std::cerr << "Error al abrir el archivo CSV." << std::endl;
+    }
+    //std::cout << std::endl;
+}
+
 int* ListaEnlazada::busquedaDepartamentos(string depa)
 {
     int *arr = new int[4];  // Asigna memoria para un arreglo de 4 elementos
