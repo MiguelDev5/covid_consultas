@@ -116,7 +116,6 @@ void ListaEnlazada::getData()
     {
         if (actual->visible == true)
         {
-            cout << "asdf" << count;
             tableWidget->setItem(count, 0, new QTableWidgetItem(QString::fromStdString(actual->fecha_corte)));
             tableWidget->setItem(count, 1, new QTableWidgetItem(QString::fromStdString(actual->uuid)));
             tableWidget->setItem(count, 2, new QTableWidgetItem(QString::fromStdString(actual->fecha_muestra)));
