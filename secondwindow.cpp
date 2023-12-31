@@ -124,9 +124,6 @@ void SecondWindow::on_actionSalir_triggered(){
 
 void SecondWindow::on_actionAcerca_de_triggered(){
     QTableWidget *tableWidget;
-//    tableWidget = new QTableWidget(2, 6);
-
-//    tableWidget->setHorizontaleaderLabels(QStringList() << "FECHA_CORTE" << "UUID" << "FECHA_MUESTRA" << "Edad" << "Sexo" << "Institucion");
     tableWidget = &MaintenanceTable::getTable();
 
 
@@ -141,16 +138,4 @@ void SecondWindow::on_actionAcerca_de_triggered(){
 
 }
 
-
-void SecondWindow::on_export_2_triggered()
-{
-    //MaintenanceTable::guardarCSV();
-    //ListaEnlazada *temList = ExtractData::getListaTotal();
-    //temList->mostrarTabla();
-    /*
-    this->hide();
-    ventanaExportar *ventanaEx = new ventanaExportar();
-    ventanaEx->show();
-    */
-}
 

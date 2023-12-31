@@ -59,7 +59,7 @@ void ListaEnlazada::busqueda(int n, string dato)
     cout << "Busqueda: " << endl;
 }
 
-void ListaEnlazada::mostrar()
+void ListaEnlazada::mostrar() //mostrar para imprimir en consola
 {
     Nodo *actual = cabeza;
     while (actual != nullptr)
@@ -100,8 +100,7 @@ void ListaEnlazada::getData()
     Nodo *actual = cabeza;
 
 
-    QTableWidget *tableWidget;
-    //    tableWidget = new QTableWidget(2, 6);
+    QTableWidget *tableWidget;    
 
     //    tableWidget->setHorizontaleaderLabels(QStringList() << "FECHA_CORTE" << "UUID" << "FECHA_MUESTRA" << "Edad" << "Sexo" << "Institucion");
     tableWidget = &MaintenanceTable::getTable();
@@ -213,92 +212,6 @@ void ListaEnlazada::eliminarfiltro()
         actual = actual->siguiente;
     }
 }
-
-void ListaEnlazada::mostrarTabla()
-{
-    // Nombre del archivo CSV
-    std::string nombreArchivo = "resuladosConFiltro.csv";
-
-    // Abrir el archivo CSV para escritura
-    std::ofstream archivoCSV(nombreArchivo);
-
-    Nodo *actual = cabeza;
-    if (archivoCSV.is_open()) {
-        // Escribir los encabezados de las columnas
-        archivoCSV << "Fecha Corte;UUID;Fecha Muestra;Edad;Sexo;Institucion;Ubigeo Paciente;Departamento_Paciente;Provincia_Paciente;Distrito_Paciente;Departamento_Muestra;Provincia_Muestra;Distrito_Muestra;Tipo_Muestra;Resultado\n";
-        while (actual != nullptr)
-        {
-            if (actual->visible == true)
-            {
-                archivoCSV << actual->fecha_corte << ";"<<
-                    actual->uuid << ";"<<
-                    actual->fecha_muestra << ";"<<
-                    actual->edad << ";"<<
-                    actual->sexo << ";"<<
-                    actual->institucion << ";"<<
-                    actual->ubigeo_paciente << ";"<<
-                    actual->departamento_paciente<< ";" <<
-                    actual->provincia_paciente <<";"<<
-                    actual->distrito_paciente << ";" <<
-                    actual->departamento_muestra<< ";" <<
-                    actual->provincia_muestra<<";"<<
-                    actual->distrito_muestra<<";"<<
-                    actual->tipo_muestra << ";"<<
-                    actual->resultado << "\n";
-            }
-            actual = actual->siguiente;
-        }
-        // Cerrar el archivo
-        archivoCSV.close();
-        std::cout << "Datos exportados exitosamente a " << nombreArchivo << std::endl;
-    }else {
-        std::cerr << "Error al abrir el archivo CSV." << std::endl;
-    }
-    //std::cout << std::endl;
-}
-
-int* ListaEnlazada::busquedaDepartamentos(string depa)
-{
-    int *arr = new int[4];  // Asigna memoria para un arreglo de 4 elementos
-    arr[0] = 0; //ASPIRADO TRAQUEAL
-    arr[1] = 0; //HISOPADO NASAL Y FARINGEO
-    arr[2] = 0; //LAVADO BRONCOALVEOLAR
-    arr[3] = 0; //TEJIDO PULMONAR
-    arr[4] = 0; //
-    arr[5] = 0; //
-    arr[6] = 0; //
-    arr[7] = 0; //
-    Nodo *actual = cabeza;
-    while (actual != nullptr)
-    {
-        if (actual->departamento_paciente == depa)
-        {
-
-            if(actual->resultado == "POSITIVO"){
-                if (actual->tipo_muestra == "ASPIRADO TRAQUEAL")
-                    arr[0]++;
-                if (actual->tipo_muestra == "HISOPADO NASAL Y FARINGEO")
-                    arr[1]++;
-                if (actual->tipo_muestra == "LAVADO BRONCOALVEOLAR")
-                    arr[2]++;
-                if (actual->tipo_muestra == "TEJIDO PULMONAR")
-                    arr[3]++;
-            }else{
-                if (actual->tipo_muestra == "ASPIRADO TRAQUEAL")
-                    arr[4]++;
-                if (actual->tipo_muestra == "HISOPADO NASAL Y FARINGEO")
-                    arr[5]++;
-                if (actual->tipo_muestra == "LAVADO BRONCOALVEOLAR")
-                    arr[6]++;
-                if (actual->tipo_muestra == "TEJIDO PULMONAR")
-                    arr[7]++;
-            }
-        }
-        actual = actual->siguiente;
-    }
-    return arr;
-}
-
 void ListaEnlazada::listaCopia(ListaEnlazada* listaCopia){
     Nodo *actual = cabeza;
 

@@ -27,7 +27,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         maintenancetable.h maintenancetable.cpp
 
         searchform.h searchform.cpp searchform.ui
-        msearchcontroller.h msearchcontroller.cpp
+
         nodo.h nodo.cpp
         listaenlazada.h listaenlazada.cpp
         extractdata.h extractdata.cpp

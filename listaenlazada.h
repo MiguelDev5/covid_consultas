@@ -27,12 +27,10 @@ public:
                           string resultado);
 
     void busqueda(int n, string dato);
-    void mostrar();
+    void mostrar(); //consola
     void getData();
     void filtro(int n, string dato);
     void eliminarfiltro();
-    void mostrarTabla();
-    int* busquedaDepartamentos(string depa);
     void listaCopia(ListaEnlazada* listaCopia);
 };
 
